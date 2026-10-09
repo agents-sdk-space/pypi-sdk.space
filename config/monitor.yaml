@@ -1,0 +1,12 @@
+# Monitor + Slack settings for thanabartbb/pypi-sdk.space
+repo: thanabartbb/pypi-sdk.space
+pypi_package: pypi-sdk-space
+github_default_branch: main
+state_file: .pypi-monitor/state.json
+pypi_publishing_errors_url: https://pypi.org/manage/account/publishing/#errors
+
+slack:
+  # Incoming webhook: set SLACK_WEBHOOK_URL in GitHub Actions / local env.
+  # Cursor agent commands can also post via Slack MCP to this channel:
+  channel_id: C0BKYMAQHN1
+  channel_name: "#general"
