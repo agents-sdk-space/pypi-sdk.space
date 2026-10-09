@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "pypi-sdk-space"
 version = "0.1.0"
-description = "CLI and automation helpers for PyPI publishing, monitoring, and Slack updates (pypi-sdk.space)."
+description = "CLI and automation for pypi-sdk.space — build, publish, monitor, and Slack updates."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
@@ -45,7 +45,7 @@ pypi-space = "pypi_sdk_space.cli:app"
 Homepage = "https://github.com/agents-sdk-space/pypi-sdk.space"
 Repository = "https://github.com/agents-sdk-space/pypi-sdk.space"
 Documentation = "https://github.com/agents-sdk-space/pypi-sdk.space#readme"
-"PyPI publishing errors" = "https://pypi.org/manage/account/publishing/#errors"
+Publishing = "https://pypi.org/manage/account/publishing/"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pypi_sdk_space"]
