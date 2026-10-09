@@ -43,7 +43,7 @@ Makefile shortcuts: `make test`, `make monitor`, `make monitor-slack`
 1. สร้าง **Incoming Webhook** ใน Slack workspace
 2. ตั้งชื่อ secret ให้ตรง **`SLACK_WEBHOOK_URL`** (URL เต็มของ webhook)
    - **Cloud Agent Environment** — สำหรับรัน `pypi-space monitor slack` ใน agent (ต้องชื่อตัวแปรนี้; หลังเพิ่ม secret ให้เริ่ม agent ใหม่)
-   - **GitHub repo secrets** — สำหรับ workflow `monitor-and-notify.yml` / `publish.yml` บน GitHub
+   - **GitHub repo secrets** — สำหรับ workflow `monitor-and-notify.yml` / `wf_spacejob.yml` บน GitHub
 3. ใน Cursor ใช้ **`/pypi-slack-update`** ได้แม้ webhook ไม่ถูก inject ใน VM (agent โพสต์ผ่าน Slack MCP ไป `#general` ตาม `config/monitor.yaml`)
 4. Workflow `monitor-and-notify.yml` รันตาม schedule และเมื่อ push ที่ `main`
 
@@ -53,7 +53,18 @@ Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#g
 
 ## Publish ไป PyPI
 
-ใช้ [Trusted publishing](https://docs.pypi.org/trusted-publishers/) จาก GitHub Actions (`publish.yml`) หลัง tag release
+ตั้งค่า Trusted Publisher บน PyPI ให้ตรงกับ repo นี้:
+
+| ฟิลด์ PyPI | ค่า |
+|------------|-----|
+| ชื่อโปรเจกต์ | **`pypi-sdk.space`** |
+| GitHub repo | **`thanabartbb/pypi-sdk.space`** |
+| Workflow | **`wf_spacejob.yml`** |
+| Environment | ใดก็ได้ |
+
+Publish: สร้าง [GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) → workflow [`.github/workflows/wf_spacejob.yml`](.github/workflows/wf_spacejob.yml) จะ build และอัปโหลดด้วย [Trusted publishing](https://docs.pypi.org/trusted-publishers/) (OIDC)
+
+ติดตามดาวน์โหลด: [pypistats.org/packages/pypi-sdk.space](https://pypistats.org/packages/pypi-sdk.space)
 
 หาก publish ล้มเหลว เปิดหน้า errors ของบัญชี PyPI:
 

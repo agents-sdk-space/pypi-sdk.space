@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pypi-sdk-space"
+name = "pypi-sdk.space"
 version = "0.1.0"
 description = "CLI and automation for pypi-sdk.space — build, publish, monitor, and Slack updates."
 readme = "README.md"

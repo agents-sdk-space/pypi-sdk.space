@@ -1,4 +1,4 @@
-name: Publish to PyPI
+name: Publish to PyPI (wf_spacejob)
 
 on:
   release:
@@ -12,7 +12,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: pypi
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
