@@ -11,8 +11,16 @@ class SlackNotifyError(RuntimeError):
     pass
 
 
+def _webhook_url() -> str:
+    for key in ("SLACK_WEBHOOK_URL", "SLACK_WEBHOOK"):
+        value = os.environ.get(key, "").strip()
+        if value:
+            return value
+    return ""
+
+
 def slack_webhook_configured() -> bool:
-    return bool(os.environ.get("SLACK_WEBHOOK_URL", "").strip())
+    return bool(_webhook_url())
 
 
 def post_webhook(
@@ -21,11 +29,11 @@ def post_webhook(
     blocks: list[dict[str, Any]] | None = None,
     timeout: float = 30.0,
 ) -> None:
-    webhook = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
+    webhook = _webhook_url()
     if not webhook:
         raise SlackNotifyError(
-            "SLACK_WEBHOOK_URL is not set. Add an incoming webhook URL in GitHub Actions secrets "
-            "or export it locally before running monitor slack."
+            "SLACK_WEBHOOK_URL is not set. Add it in Cloud Agent Environment secrets, "
+            "GitHub Actions repo secrets, or export it locally before running monitor slack."
         )
 
     body: dict[str, Any] = {"text": text}

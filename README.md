@@ -41,10 +41,15 @@ Makefile shortcuts: `make test`, `make monitor`, `make monitor-slack`
 ## Slack & GitHub Actions
 
 1. สร้าง **Incoming Webhook** ใน Slack workspace
-2. ใส่ secret ใน GitHub repo: `SLACK_WEBHOOK_URL`
-3. Workflow `monitor-and-notify.yml` จะรันตาม schedule และเมื่อ push ที่ `main`
+2. ตั้งชื่อ secret ให้ตรง **`SLACK_WEBHOOK_URL`** (URL เต็มของ webhook)
+   - **Cloud Agent Environment** — สำหรับรัน `pypi-space monitor slack` ใน agent (ต้องชื่อตัวแปรนี้; หลังเพิ่ม secret ให้เริ่ม agent ใหม่)
+   - **GitHub repo secrets** — สำหรับ workflow `monitor-and-notify.yml` / `publish.yml` บน GitHub
+3. ใน Cursor ใช้ **`/pypi-slack-update`** ได้แม้ webhook ไม่ถูก inject ใน VM (agent โพสต์ผ่าน Slack MCP ไป `#general` ตาม `config/monitor.yaml`)
+4. Workflow `monitor-and-notify.yml` รันตาม schedule และเมื่อ push ที่ `main`
 
 Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#general` — แก้ `slack.channel_id` ได้
+
+ตรวจว่า webhook พร้อมหรือยัง: `pypi-space doctor` (แถว `SLACK_WEBHOOK_URL`)
 
 ## Publish ไป PyPI
 

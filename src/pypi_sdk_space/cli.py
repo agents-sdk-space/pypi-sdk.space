@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -62,6 +63,12 @@ def doctor_cmd() -> None:
     row("build", shutil.which("python") is not None, "(module: python -m build)")
     row("twine", shutil.which("twine") is not None)
     row("SLACK_WEBHOOK_URL", slack_webhook_configured())
+    injected = os.environ.get("CLOUD_AGENT_INJECTED_SECRET_NAMES", "").strip()
+    if injected and not slack_webhook_configured():
+        table.add_row(
+            "Cloud secrets (names only)",
+            f"[dim]{injected}[/dim] — add SLACK_WEBHOOK_URL for webhook CLI",
+        )
     row("config/monitor.yaml", Path("config/monitor.yaml").is_file())
 
     try:
