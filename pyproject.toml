@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pypi-sdk-space"
+version = "0.1.0"
+description = "CLI and automation helpers for PyPI publishing, monitoring, and Slack updates (pypi-sdk.space)."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+authors = [{ name = "agents-sdk-space" }]
+keywords = ["pypi", "packaging", "slack", "monitoring"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Build Tools",
+]
+dependencies = [
+  "httpx>=0.27",
+  "pyyaml>=6.0",
+  "rich>=13.7",
+  "tomli>=2.0; python_version < '3.11'",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "twine>=5.0",
+]
+
+[project.scripts]
+pypi-space = "pypi_sdk_space.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/agents-sdk-space/pypi-sdk.space"
+Repository = "https://github.com/agents-sdk-space/pypi-sdk.space"
+Documentation = "https://github.com/agents-sdk-space/pypi-sdk.space#readme"
+"PyPI publishing errors" = "https://pypi.org/manage/account/publishing/#errors"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pypi_sdk_space"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/config", "/README.md", "/LICENSE"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

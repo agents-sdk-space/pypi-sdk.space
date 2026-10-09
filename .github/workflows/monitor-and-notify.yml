@@ -1,0 +1,46 @@
+name: Monitor and Slack notify
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # 09:00 Asia/Bangkok (02:00 UTC), Mon–Fri
+    - cron: "0 2 * * 1-5"
+  push:
+    branches: [main]
+    paths:
+      - "pyproject.toml"
+      - "src/**"
+      - "config/monitor.yaml"
+      - ".github/workflows/monitor-and-notify.yml"
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CLI
+        run: python -m pip install -e .
+      - name: Run monitor report
+        run: pypi-space monitor run --json
+      - name: Slack notify on changes
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: pypi-space monitor slack
+      - name: Commit monitor state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .pypi-monitor/state.json || true
+          if git diff --staged --quiet; then
+            echo "No state changes"
+          else
+            git commit -m "chore: update PyPI monitor state [skip ci]"
+            git push
+          fi
