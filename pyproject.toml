@@ -9,7 +9,7 @@ description = "CLI and automation for pypi-sdk.space — build, publish, monitor
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
-authors = [{ name = "agents-sdk-space" }]
+authors = [{ name = "thanabartbb" }]
 keywords = ["pypi", "packaging", "slack", "monitoring"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -42,9 +42,9 @@ dev = [
 pypi-space = "pypi_sdk_space.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/agents-sdk-space/pypi-sdk.space"
-Repository = "https://github.com/agents-sdk-space/pypi-sdk.space"
-Documentation = "https://github.com/agents-sdk-space/pypi-sdk.space#readme"
+Homepage = "https://github.com/thanabartbb/pypi-sdk.space"
+Repository = "https://github.com/thanabartbb/pypi-sdk.space"
+Documentation = "https://github.com/thanabartbb/pypi-sdk.space#readme"
 Publishing = "https://pypi.org/manage/account/publishing/"
 
 [tool.hatch.build.targets.wheel]

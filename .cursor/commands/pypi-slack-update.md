@@ -2,7 +2,7 @@
 description: รัน PyPI monitor แล้วแจ้ง Slack เกี่ยวกับการเปลี่ยนแปลง (webhook หรือ Slack MCP)
 ---
 
-อัปเดต Slack สำหรับ repo **agents-sdk-space/pypi-sdk.space**:
+อัปเดต Slack สำหรับ repo **thanabartbb/pypi-sdk.space**:
 
 1. `pip install -e .` แล้ว `pypi-space monitor run --json` เพื่อได้รายงานล่าสุด
 2. ถ้ามี `SLACK_WEBHOOK_URL` ใน environment: รัน `pypi-space monitor slack` (ใช้ `--force` ถ้าผู้ใช้ขอให้ส่งแม้ไม่มี diff)

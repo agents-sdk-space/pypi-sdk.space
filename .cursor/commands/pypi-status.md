@@ -2,7 +2,7 @@
 description: สรุปสุขภาพ repo pypi-sdk.space, เวอร์ชัน local vs PyPI, และลิงก์ publishing errors
 ---
 
-รันการตรวจสอบสำหรับ repo **agents-sdk-space/pypi-sdk.space**:
+รันการตรวจสอบสำหรับ repo **thanabartbb/pypi-sdk.space**:
 
 1. `make dev` หรือ `pip install -e ".[dev]"` ถ้ายังไม่ได้ติดตั้ง CLI
 2. `pypi-space doctor`
