@@ -1,4 +1,4 @@
-name: Publish to PyPI (wf_spacejob)
+name: Publish to PyPI (public)
 
 on:
   release:

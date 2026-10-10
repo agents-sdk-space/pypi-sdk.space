@@ -24,7 +24,7 @@ jobs:
           pypi-space doctor
           python -m pytest -q
           python -m ruff check src tests
-      - name: Verify build (wf_spacejob parity)
+      - name: Verify build (public.yml parity)
         run: |
           python -m build
           python -m twine check dist/*
