@@ -5,27 +5,16 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pypi-sdk.space"
 version = "0.1.0"
-description = "CLI and automation for pypi-sdk.space — build, publish, monitor, and Slack updates."
+description = "Your description here"
 readme = "README.md"
+requires-python = ">=3.7"
 license = { text = "Apache-2.0" }
-requires-python = ">=3.11"
 authors = [{ name = "thanabartbb" }]
-keywords = ["pypi", "packaging", "slack", "monitoring"]
-classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Environment :: Console",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: Apache Software License",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Topic :: Software Development :: Build Tools",
-]
 dependencies = [
   "httpx>=0.27",
   "pyyaml>=6.0",
   "rich>=13.7",
+  "tomli>=2.0; python_version < '3.11'",
   "typer>=0.12",
 ]
 
@@ -41,20 +30,21 @@ dev = [
 pypi-space = "pypi_sdk_space.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/thanabartbb/pypi-sdk.space"
-Repository = "https://github.com/thanabartbb/pypi-sdk.space"
-Documentation = "https://github.com/thanabartbb/pypi-sdk.space#readme"
-Publishing = "https://pypi.org/manage/account/publishing/"
+"Homepage" = "https://github.com/agents-sdk-space/pypi-sdk.space"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py37"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/pypi_sdk_space/cli.py" = ["UP042"]
+"src/pypi_sdk_space/project.py" = ["UP036"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

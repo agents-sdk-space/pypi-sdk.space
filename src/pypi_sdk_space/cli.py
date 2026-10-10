@@ -5,7 +5,7 @@ import os
 import shutil
 import subprocess
 import sys
-from enum import StrEnum
+from enum import Enum
 from pathlib import Path
 from typing import Annotated
 
@@ -33,7 +33,7 @@ app.add_typer(pypi_app, name="pypi")
 app.add_typer(monitor_app, name="monitor")
 
 
-class BumpPart(StrEnum):
+class BumpPart(str, Enum):
     patch = "patch"
     minor = "minor"
     major = "major"
