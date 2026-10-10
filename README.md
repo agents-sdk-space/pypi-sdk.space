@@ -27,7 +27,7 @@ pypi-space doctor
 | `pypi-space monitor run --json` | สแกนการเปลี่ยนแปลง (local vs PyPI) |
 | `pypi-space monitor slack` | ส่งสรุปไป Slack ผ่าน `SLACK_WEBHOOK_URL` |
 
-Makefile shortcuts: `make test`, `make monitor`, `make monitor-slack`
+Makefile shortcuts: `make test`, `make coverage`, `make monitor`, `make monitor-slack`
 
 ## Cursor commands (ใน IDE)
 

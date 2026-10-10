@@ -1,4 +1,4 @@
-.PHONY: install dev test lint format doctor build check-dist monitor monitor-slack publishing
+.PHONY: install dev test coverage lint format doctor build check-dist monitor monitor-slack publishing
 
 install:
 	python -m pip install -e .
@@ -8,6 +8,9 @@ dev:
 
 test:
 	python -m pytest -q
+
+coverage:
+	python -m pytest --cov --cov-report=xml --cov-report=term-missing
 
 lint:
 	python -m ruff check src tests
