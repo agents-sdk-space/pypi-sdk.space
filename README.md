@@ -1,6 +1,6 @@
 # pypi-sdk.space
 
-เครื่องมือ CLI และ automation สำหรับ repo **[thanabartbb/pypi-sdk.space](https://github.com/thanabartbb/pypi-sdk.space)** — build, ตรวจสุขภาพก่อน publish ไป PyPI, ติดตามการเปลี่ยนแปลง และแจ้ง Slack
+เครื่องมือ CLI และ automation สำหรับ repo **[agents-sdk-space/pypi-sdk.space](https://github.com/agents-sdk-space/pypi-sdk.space)** — build, ตรวจสุขภาพก่อน publish ไป PyPI, ติดตามการเปลี่ยนแปลง และแจ้ง Slack
 
 ลิงก์สำคัญสำหรับบัญชี PyPI ของคุณ (Trusted publishing / errors):
 

@@ -28,7 +28,7 @@ def load_monitor_config(path: Path | None = None) -> MonitorConfig:
     if not cfg_path.is_file():
         return MonitorConfig(
             repo=DEFAULT_REPO,
-            pypi_package="pypi-sdk-space",
+            pypi_package="pypi-sdk.space",
             state_file=Path(".pypi-monitor/state.json"),
             slack_channel_id=None,
             pypi_publishing_errors_url=PYPI_PUBLISHING_ERRORS_URL,
@@ -40,7 +40,7 @@ def load_monitor_config(path: Path | None = None) -> MonitorConfig:
     channel_id = slack.get("channel_id")
     return MonitorConfig(
         repo=str(raw.get("repo") or DEFAULT_REPO),
-        pypi_package=str(raw.get("pypi_package") or "pypi-sdk-space"),
+        pypi_package=str(raw.get("pypi_package") or "pypi-sdk.space"),
         state_file=Path(str(raw.get("state_file") or ".pypi-monitor/state.json")),
         slack_channel_id=str(channel_id) if channel_id else None,
         pypi_publishing_errors_url=str(

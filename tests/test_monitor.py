@@ -7,7 +7,7 @@ from pypi_sdk_space.monitor import run_monitor
 def test_run_monitor_first_run(tmp_path: Path, monkeypatch) -> None:
     state = tmp_path / "state.json"
     cfg = MonitorConfig(
-        repo="thanabartbb/pypi-sdk.space",
+        repo="agents-sdk-space/pypi-sdk.space",
         pypi_package="pypi-sdk-space-nonexistent-xyz",
         state_file=state,
         slack_channel_id=None,
