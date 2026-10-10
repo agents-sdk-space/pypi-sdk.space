@@ -1,19 +1,21 @@
 .PHONY: install dev test lint format doctor build check-dist monitor monitor-slack publishing
 
+PYTHON ?= python3
+
 install:
-	python -m pip install -e .
+	$(PYTHON) -m pip install -e .
 
 dev:
-	python -m pip install -e ".[dev]"
+	$(PYTHON) -m pip install -e ".[dev]"
 
 test:
-	python -m pytest -q
+	$(PYTHON) -m pytest -q
 
 lint:
-	python -m ruff check src tests
+	$(PYTHON) -m ruff check src tests
 
 format:
-	python -m ruff format src tests
+	$(PYTHON) -m ruff format src tests
 
 doctor:
 	pypi-space doctor

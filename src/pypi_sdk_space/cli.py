@@ -60,7 +60,11 @@ def doctor_cmd() -> None:
 
     row("python", True, sys.version.split()[0])
     row("git", shutil.which("git") is not None)
-    row("build", shutil.which("python") is not None, "(module: python -m build)")
+    row(
+        "build",
+        shutil.which(sys.executable) is not None,
+        f"(module: {sys.executable} -m build)",
+    )
     row("twine", shutil.which("twine") is not None)
     row("SLACK_WEBHOOK_URL", slack_webhook_configured())
     injected = os.environ.get("CLOUD_AGENT_INJECTED_SECRET_NAMES", "").strip()
