@@ -4,7 +4,7 @@
 
 ลิงก์สำคัญสำหรับบัญชี PyPI ของคุณ (Trusted publishing /):
 
-**pypi-sdk.space**
+**https://pypi-sdk.space/**
 
 ## ติดตั้ง
 
