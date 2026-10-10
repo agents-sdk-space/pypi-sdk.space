@@ -1,5 +1,11 @@
 # pypi-sdk.space
 
+**PyPI (อย่างเป็นทางการ):** [pypi-sdk-space 0.1.0](https://pypi.org/project/pypi-sdk-space/0.1.0/)
+
+```bash
+pip install pypi-sdk-space==0.1.0
+```
+
 เครื่องมือ CLI และ automation สำหรับ repo **[thanabartbb/pypi-sdk.space](https://github.com/thanabartbb/pypi-sdk.space)** — build, ตรวจสุขภาพก่อน publish ไป PyPI, ติดตามการเปลี่ยนแปลง และแจ้ง Slack
 
 ลิงก์สำคัญสำหรับบัญชี PyPI ของคุณ (Trusted publishing / errors):
@@ -54,7 +60,7 @@ Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#g
 
 ## `pyproject.toml` (ส่วนหัว)
 
-ใช้ **setuptools** ตามเทมเพลต PyPI — ต้องตรงกับแพ็กเกจ **`pypi-sdk.space`** ก่อน publish:
+ใช้ **setuptools** ตามเทมเพลต PyPI — ชื่อแพ็กเกจบน PyPI คือ **`pypi-sdk-space`**:
 
 ```toml
 [build-system]
@@ -62,7 +68,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pypi-sdk.space"
+name = "pypi-sdk-space"
 version = "0.1.0"
 description = "Your description here"
 readme = "README.md"
@@ -70,6 +76,7 @@ requires-python = ">=3.7"
 
 [project.urls]
 "Homepage" = "https://github.com/agents-sdk-space/pypi-sdk.space"
+PyPI = "https://pypi.org/project/pypi-sdk-space/0.1.0/"
 ```
 
 Build ในเครื่อง: `pypi-space build` หรือ `python -m build` → ไฟล์ใน `dist/`
@@ -80,14 +87,14 @@ Build ในเครื่อง: `pypi-space build` หรือ `python -m bu
 
 | ฟิลด์ PyPI | ค่า |
 |------------|-----|
-| ชื่อโปรเจกต์ | **`pypi-sdk.space`** |
+| ชื่อโปรเจกต์ | **`pypi-sdk-space`** |
 | GitHub repo | **`thanabartbb/pypi-sdk.space`** |
 | Workflow | **`wf_spacejob.yml`** |
 | Environment | ใดก็ได้ |
 
 Publish: สร้าง [GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) → workflow [`.github/workflows/wf_spacejob.yml`](.github/workflows/wf_spacejob.yml) จะ build และอัปโหลดด้วย [Trusted publishing](https://docs.pypi.org/trusted-publishers/) (OIDC)
 
-ติดตามดาวน์โหลด: [pypistats.org/packages/pypi-sdk.space](https://pypistats.org/packages/pypi-sdk.space)
+ติดตามดาวน์โหลด: [pypistats.org/packages/pypi-sdk-space](https://pypistats.org/packages/pypi-sdk-space)
 
 หาก publish ล้มเหลว เปิดหน้า errors ของบัญชี PyPI:
 

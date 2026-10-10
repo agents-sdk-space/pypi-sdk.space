@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pypi-sdk.space"
+name = "pypi-sdk-space"
 version = "0.1.0"
 description = "Your description here"
 readme = "README.md"
@@ -31,6 +31,7 @@ pypi-space = "pypi_sdk_space.cli:app"
 
 [project.urls]
 "Homepage" = "https://github.com/agents-sdk-space/pypi-sdk.space"
+PyPI = "https://pypi.org/project/pypi-sdk-space/0.1.0/"
 
 [tool.setuptools.packages.find]
 where = ["src"]

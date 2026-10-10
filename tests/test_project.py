@@ -14,7 +14,7 @@ def test_bump_patch() -> None:
 def test_load_project_meta() -> None:
     root = Path(__file__).resolve().parents[1]
     meta = load_project_meta(root / "pyproject.toml")
-    assert meta.name == "pypi-sdk.space"
+    assert meta.name == "pypi-sdk-space"
     assert meta.version == "0.1.0"
 
 
