@@ -51,6 +51,28 @@ Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#g
 
 ตรวจว่า webhook พร้อมหรือยัง: `pypi-space doctor` (แถว `SLACK_WEBHOOK_URL`)
 
+## `pyproject.toml` (ส่วนหัว)
+
+ใช้ **setuptools** ตามเทมเพลต PyPI — ต้องตรงกับแพ็กเกจ **`pypi-sdk.space`** ก่อน publish:
+
+```toml
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypi-sdk.space"
+version = "0.1.0"
+description = "Your description here"
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.urls]
+"Homepage" = "https://github.com/agents-sdk-space/pypi-sdk.space"
+```
+
+Build ในเครื่อง: `pypi-space build` หรือ `python -m build` → ไฟล์ใน `dist/`
+
 ## Publish ไป PyPI
 
 ตั้งค่า Trusted Publisher บน PyPI ให้ตรงกับ repo นี้:
