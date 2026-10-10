@@ -37,6 +37,7 @@ Makefile shortcuts: `make test`, `make monitor`, `make monitor-slack`
 - `/pypi-publish-check` — เช็คก่อน release / publish
 - `/pypi-slack-update` — รัน monitor แล้วโพสต์ Slack (MCP)
 - `/pypi-watch` — ตั้ง timer ให้ agent ติดตามและแจ้งเป็นระยะ
+- `/pypi-maintain-6h` — ตรวจและบำรุงทุก **6 ชั่วโมง** (doctor, test, build, monitor, Slack)
 
 ## Slack & GitHub Actions
 
@@ -45,7 +46,7 @@ Makefile shortcuts: `make test`, `make monitor`, `make monitor-slack`
    - **Cloud Agent Environment** — สำหรับรัน `pypi-space monitor slack` ใน agent (ต้องชื่อตัวแปรนี้; หลังเพิ่ม secret ให้เริ่ม agent ใหม่)
    - **GitHub repo secrets** — สำหรับ workflow `monitor-and-notify.yml` / `wf_spacejob.yml` บน GitHub
 3. ใน Cursor ใช้ **`/pypi-slack-update`** ได้แม้ webhook ไม่ถูก inject ใน VM (agent โพสต์ผ่าน Slack MCP ไป `#general` ตาม `config/monitor.yaml`)
-4. Workflow `monitor-and-notify.yml` รันตาม schedule และเมื่อ push ที่ `main`
+4. Workflow `monitor-and-notify.yml` รันเมื่อ push ที่ `main`; **`pypi-maintain-6h.yml`** ตรวจและบำรุงทุก **6 ชั่วโมง**
 
 Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#general` — แก้ `slack.channel_id` ได้
 

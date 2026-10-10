@@ -2,6 +2,8 @@
 description: เช็คก่อน publish ไป PyPI (build, twine, trusted publishing checklist)
 ---
 
+**งานระยะ (ทุก 6 ชม.):** ใช้ `/pypi-maintain-6h` — ตรวจและบำรุง repo อัตโนมัติ (doctor → test/lint → build → monitor → Slack) ตาม `pypi-maintain-6h.yml` และ timer ในแชท
+
 ก่อน release/publish ให้ทำตามลำดับ:
 
 1. `pypi-space doctor` — ต้องมี twine และ pyproject ถูกต้อง

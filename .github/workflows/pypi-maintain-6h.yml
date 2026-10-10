@@ -1,0 +1,48 @@
+name: PyPI maintain (every 6h)
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # ทุก 6 ชั่วโมง (UTC)
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dev dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Health check (doctor, test, lint)
+        run: |
+          pypi-space doctor
+          python -m pytest -q
+          python -m ruff check src tests
+      - name: Verify build (wf_spacejob parity)
+        run: |
+          python -m build
+          python -m twine check dist/*
+      - name: PyPI monitor report
+        run: pypi-space monitor run --json
+      - name: Slack notify on changes
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: pypi-space monitor slack
+      - name: Commit monitor state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .pypi-monitor/state.json || true
+          if git diff --staged --quiet; then
+            echo "No state changes"
+          else
+            git commit -m "chore: update PyPI monitor state [skip ci]"
+            git push
+          fi
