@@ -11,3 +11,7 @@ venv/
 .env
 .env.*
 !.env.example
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
