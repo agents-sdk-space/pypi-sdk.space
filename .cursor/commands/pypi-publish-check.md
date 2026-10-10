@@ -10,7 +10,7 @@ description: เช็คก่อน publish ไป PyPI (build, twine, trusted
 2. `make test` และ `make lint`
 3. `make check-dist` (build + twine check)
 4. `pypi-space publishing` — แสดง checklist และลิงก์ errors dashboard
-5. ยืนยัน PyPI Trusted Publisher ตรงกับ `thanabartbb/pypi-sdk.space` + workflow **`wf_spacejob.yml`** + ชื่อแพ็กเกจ **`pypi-sdk-space`** ([0.1.0](https://pypi.org/project/pypi-sdk-space/0.1.0/))
+5. ยืนยัน PyPI Trusted Publisher ตรงกับ `agents-sdk-space/pypi-sdk.space` + workflow **`wf_spacejob.yml`** + ชื่อแพ็กเกจ **`pypi-sdk-space`** ([0.1.0](https://pypi.org/project/pypi-sdk-space/0.1.0/))
 6. ถ้า publish ล้มเหลวในอดีต ให้ผู้ใช้เปิด:
    **https://pypi.org/manage/account/publishing/#errors**
 

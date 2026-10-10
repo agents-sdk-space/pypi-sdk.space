@@ -6,7 +6,7 @@
 pip install pypi-sdk-space==0.1.0
 ```
 
-เครื่องมือ CLI และ automation สำหรับ repo **[thanabartbb/pypi-sdk.space](https://github.com/thanabartbb/pypi-sdk.space)** — build, ตรวจสุขภาพก่อน publish ไป PyPI, ติดตามการเปลี่ยนแปลง และแจ้ง Slack
+เครื่องมือ CLI และ automation สำหรับ repo **[agents-sdk-space/pypi-sdk.space](https://github.com/agents-sdk-space/pypi-sdk.space)** — build, ตรวจสุขภาพก่อน publish ไป PyPI, ติดตามการเปลี่ยนแปลง และแจ้ง Slack
 
 ลิงก์สำคัญสำหรับบัญชี PyPI ของคุณ (Trusted publishing / errors):
 
@@ -88,7 +88,7 @@ Build ในเครื่อง: `pypi-space build` หรือ `python -m bu
 | ฟิลด์ PyPI | ค่า |
 |------------|-----|
 | ชื่อโปรเจกต์ | **`pypi-sdk-space`** |
-| GitHub repo | **`thanabartbb/pypi-sdk.space`** |
+| GitHub repo | **[agents-sdk-space/pypi-sdk.space](https://github.com/agents-sdk-space/pypi-sdk.space)** |
 | Workflow | **`wf_spacejob.yml`** |
 | Environment | ใดก็ได้ |
 

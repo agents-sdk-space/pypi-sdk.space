@@ -26,4 +26,4 @@ description: ตรวจและบำรุง repo/pypi-sdk.space เป็�
 | GitHub Actions `pypi-maintain-6h.yml` | cron `0 */6 * * *` |
 | Cursor timer `pypi-sdk-space-maintain-6h` | ทุก 6 ชม. → รันคำสั่งนี้ |
 
-สรุปผลเป็นภาษาไทย: pass/fail ต่อขั้น, เวอร์ชัน, publish gap, ลิงก์ repo **thanabartbb/pypi-sdk.space**
+สรุปผลเป็นภาษาไทย: pass/fail ต่อขั้น, เวอร์ชัน, publish gap, ลิงก์ repo **agents-sdk-space/pypi-sdk.space**

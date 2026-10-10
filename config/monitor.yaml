@@ -1,5 +1,5 @@
-# Monitor + Slack settings for thanabartbb/pypi-sdk.space
-repo: thanabartbb/pypi-sdk.space
+# Monitor + Slack settings for agents-sdk-space/pypi-sdk.space
+repo: agents-sdk-space/pypi-sdk.space
 pypi_package: pypi-sdk-space
 github_default_branch: main
 state_file: .pypi-monitor/state.json
