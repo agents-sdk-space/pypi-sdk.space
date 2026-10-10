@@ -136,7 +136,10 @@ def publishing_cmd() -> None:
     meta = load_project_meta()
     console.print("[bold]Trusted publishing checklist[/bold]")
     console.print(f"1. GitHub repo: https://github.com/{cfg.repo}")
-    console.print("2. Configure trusted publisher on PyPI for this repo + workflow.")
+    console.print(
+        "2. Configure trusted publisher on PyPI: workflow filename "
+        "`wf_spacejob.yml`, environment `pypi`."
+    )
     console.print("3. GitHub secret: SLACK_WEBHOOK_URL (for monitor notifications).")
     console.print(f"4. Package name on PyPI: [cyan]{meta.name}[/cyan]")
     console.print(f"5. Publishing errors dashboard: {cfg.pypi_publishing_errors_url}")

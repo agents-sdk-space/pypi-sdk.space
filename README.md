@@ -48,7 +48,7 @@ Channel เริ่มต้นใน `config/monitor.yaml` ชี้ไป `#g
 
 ## Publish ไป PyPI
 
-ใช้ [Trusted publishing](https://docs.pypi.org/trusted-publishers/) จาก GitHub Actions (`publish.yml`) หลัง tag release
+ใช้ [Trusted publishing](https://docs.pypi.org/trusted-publishers/) จาก GitHub Actions (`wf_spacejob.yml`, environment `pypi`) หลัง tag release หรือ Run workflow
 
 หาก publish ล้มเหลว เปิดหน้า errors ของบัญชี PyPI:
 
